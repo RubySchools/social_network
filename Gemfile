@@ -8,7 +8,8 @@ gem 'rails'
 gem 'sqlite3'
 gem 'sorcery'
 gem 'therubyracer'
-
+gem  'sorcery'
+gem 'carrierwave'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -36,4 +37,3 @@ group :development do
   gem 'thin'
   gem 'daemons'
 end
-
