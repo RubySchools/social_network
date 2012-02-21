@@ -1,4 +1,4 @@
-class UploadController < ApplicationController
+class UploadsController < ApplicationController
 
 skip_before_filter :require_login
 
@@ -38,11 +38,11 @@ def new
   # POST /files
   # POST /files.json
   def create
-    @file = Upload.new(params[:file])
+    @file = Upload.new(params[:upload])
 
     respond_to do |format|
       if @file.save
-        format.html { redirect_to(:files, :notice => 'file was successfully created.') }
+        format.html { redirect_to(:uploads, :notice => 'file was successfully created.') }
         format.json { render json: @file, status: :created, location: @file }
       else
         format.html { render action: "new" }
@@ -74,7 +74,7 @@ def new
     @file.destroy
 
     respond_to do |format|
-      format.html { redirect_to files_url }
+      format.html { redirect_to uploads_url }
       format.json { head :ok }
     end
   end

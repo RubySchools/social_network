@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Image:</b>
-  <%= image_tag @user.image_url(:thumb)  if @user.image? %>
+  <b>File:</b>
+  <%= link_to "#{@file.name}",file_url(@file) %>
 </p>
 
 <p>
-  <b>Username:</b>
-  <%= @user.username %>
+  <b>Name:</b>
+  <%= @file.name %>
 </p>
 
 <p>
-  <b>Email:</b>
-  <%= @user.email %>
+  <b>Description:</b>
+  <%= @file.description %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_upload_path(@file) %> |
+<%= link_to 'Back', uploads_path %>

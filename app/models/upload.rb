@@ -1,4 +1,4 @@
 class Upload < ActiveRecord::Base
-        mount_uploader :file, FileUploader
-	attr_accessible :name, :description, :file 
+        attr_accessible :name, :description, :file
+	mount_uploader :file, FileUploader
 end

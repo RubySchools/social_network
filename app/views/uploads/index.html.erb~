@@ -14,10 +14,11 @@
     <td><%= file.name %></td>
     <td><%= file.description %></td>
     <td><%= link_to 'Show', file %></td>
-    <td><%= link_to 'Edit', edit_file_path(file) %></td>
+    <td><%= link_to 'Edit', edit_upload_path(file) %></td>
     <td><%= link_to 'Destroy', file, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
-    <td><%= link_to 'New' %></td>
+   
 <br />
+ <td><%= link_to 'New', new_upload_path %></td>
