@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Image:</b>
+  <%= file_tag @file.file_url(:files_path)  if @file.file? %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @file.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @file.description %>
+</p>
+
+<%= link_to 'Edit', edit_file_path(@file) %> |
+<%= link_to 'Back', files_path %>
