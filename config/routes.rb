@@ -3,9 +3,11 @@ SocialNetwork::Application.routes.draw do
 	root :to => 'users#index'
 	resources :user_sessions
 	resources :users
-	  
+	resources :uploads
+
 	match 'login' => 'user_sessions#new', :as => :login
 	match 'logout' => 'user_sessions#destroy', :as => :logout
+	match 'downloads' => 'uploads#index',:as => :downloads
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
