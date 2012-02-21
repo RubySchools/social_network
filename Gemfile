@@ -8,7 +8,7 @@ gem 'rails'
 gem 'sqlite3'
 gem 'sorcery'
 gem 'therubyracer'
-gem  'sorcery'
+gem 'sorcery'
 gem 'carrierwave'
 gem 'rmagick'
 
@@ -21,7 +21,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'cancan'
+#Alternative for cancan
+#gem 'cantango'
 gem 'pg'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
