@@ -15,7 +15,7 @@ gem  'sorcery'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'thin'
-gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
+gem "will_paginate"
 gem 'eventmachine'#, '~> 1.0.0.beta', :platforms => [:mswin, :mingw]
 # Gems used only for assets and not required
 # in production environments by default.
