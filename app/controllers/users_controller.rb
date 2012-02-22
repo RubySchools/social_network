@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-
+    @title = "Main page"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
+    @title = "Profile"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-
+    @title = "New user"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
@@ -37,6 +37,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @title = "Edit user profile"
     @user = User.find(params[:id])
   end
 
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
+    @title = "Edit user profile1"
     respond_to do |format|
       if @user.save
         format.html { redirect_to(:users, :notice => 'User was successfully created.') }
