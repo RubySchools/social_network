@@ -5,7 +5,7 @@ skip_before_filter :require_login
 #Page where all Uploads are available
 def index
 @files = Upload.all
-
+  @title = "My files"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @files }
