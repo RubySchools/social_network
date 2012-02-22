@@ -11,6 +11,7 @@ gem 'therubyracer'
 gem 'sorcery'
 gem 'carrierwave'
 gem 'rmagick'
+gen 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
