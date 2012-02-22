@@ -12,7 +12,7 @@ def index
     end
 end
 
-#Shows only one chosen file? with description.
+#Shows only one chosen file? with description..
 def show
     @file = Upload.find(params[:id])
 	    respond_to do |format|
