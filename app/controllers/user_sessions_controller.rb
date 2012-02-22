@@ -4,6 +4,10 @@ class UserSessionsController < ApplicationController
     @user = User.new
   end
 
+def index
+  redirect_to(:users) 
+end
+
   def create
     respond_to do |format|
       if @user = login(params[:username],params[:password])
