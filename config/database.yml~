@@ -10,7 +10,7 @@ development:
   host: localhost
   database: social_dev
   pool: 5
-  username: social
+  username: alex
   password: social
 
 # Warning: The database defined as "test" will be erased and
