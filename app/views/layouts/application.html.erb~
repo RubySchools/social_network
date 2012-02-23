@@ -2,28 +2,52 @@
 <html>
   <head>
     <title>Social Network | <%= @title %></title>
-      <%= stylesheet_link_tag    "application" %>
-      <%= javascript_include_tag "application" %>
+    
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+
+
+       <%= javascript_include_tag "application" %>
       <%= csrf_meta_tags %>
   </head>
   <body>
+ <div class="container">
 
-  <div id="nav">
-    <% if current_user %>
-      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-      <%= link_to "Logout", :logout %>
-      <%= link_to "my_downloads", :downloads %>
+  <header>
+    <%= image_tag("logo.png", :alt => "Ruby School", :class => "round") %>
+        <nav class="round">
+          <ul>
+		<% if current_user %>
+			<li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+			<li><%= link_to "Logout", :logout %></li>
+			<li><%= link_to "my_downloads", :downloads %></li>
+		 <% else %>
+			<li><%= link_to "Register", new_user_path %></li>
+			<li><%= link_to "Login", :login %></li>
+		<% end %>
+          </ul>
+        </nav>
+      </header>
+    
+	<div>
+		<p id="notice"><%= notice %></p>
+		<p id="alert"><%= alert %></p>
+	</div>
+  
+	<section class="round">
+		<%= yield %>
+	</section>
+</div>
 
-    <% else %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Login", :login %>
-    <% end %>
-  </div>
-  <div>
-    <p id="notice"><%= notice %></p>
-    <p id="alert"><%= alert %></p>
-  </div>
-  <%= yield %>
-
-  </body>
+<div>
+<!--<% if current_user %><% else %>
+<%= link_to "Register", new_user_path, :class => "signup_button round" %>
+<% end %>-->
+</div>
+</body>
 </html>
