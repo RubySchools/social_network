@@ -42,3 +42,7 @@ group :development do
   gem 'thin'
   gem 'daemons'
 end
+
+group :test do
+  gem 'rspec'
+end
