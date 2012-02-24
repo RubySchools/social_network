@@ -5,13 +5,14 @@ gem 'rails'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'sorcery'
-gem 'therubyracer'
+gem 'therubyracer', :platforms => [:ruby]
 gem 'sorcery'
 gem 'carrierwave'
 gem 'rmagick'
-
+gem 'thin'
+gem 'eventmachine', '~> 1.0.0.beta', :platforms => [:mswin, :mingw]
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -40,4 +41,9 @@ gem 'pg'
 group :development do
   gem 'thin'
   gem 'daemons'
+end
+
+group :test do
+  gem 'cucumber'
+  gem 'rspec'
 end
