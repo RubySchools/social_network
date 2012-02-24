@@ -12,7 +12,7 @@ gem 'sorcery'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'thin'
-gem 'eventmachine', '~> 1.0.0.beta', :platforms => [:mswin, :mingw]
+gem 'eventmachine'#, '~> 1.0.0.beta', :platforms => [:mswin, :mingw]
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
