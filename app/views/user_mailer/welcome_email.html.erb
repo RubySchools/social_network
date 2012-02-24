@@ -4,14 +4,12 @@
 <meta content = "text/html; charset = UTF-8" http-equiv = "Content-Type"/>
 </head>
 <body>
-<h1>Welcome to Cathedra_Social_Network (blah_blah.com), <%= @user.username %></h1>
+<h2>Welcome to MechMath_Social_Network, <%= @user.username %>!</h2>
 <p>
-	You've successfully signed up to blah_blah.com.
-	Your username is <%= @user.username %>.
-	Your password is <%= @user.password %>.<br/>	
+	You've successfully signed up to blah_blah.com.<br/>
 </p>
 <p>
-	To login to the site, just follow this link: <%= @url %>
+	<%= link_to "Your Profile", user_url(@user, :host => "localhost:3000") %>
 </p>
 <p> Thanks for joining us!</p>
 </body>
