@@ -2,6 +2,15 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :image, :username
   authenticates_with_sorcery!
 	
+#Relations
+	has_many :uploads
+#	has_many :uploads, :through => :users_uploads
+
+
+
+
+
+#Validation
 	 email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i	
 
   	validates_length_of 	:password, :within => 3..25, 

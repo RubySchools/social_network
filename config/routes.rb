@@ -8,7 +8,7 @@ SocialNetwork::Application.routes.draw do
 	match 'login' => 'user_sessions#new', :as => :login
 	match 'logout' => 'user_sessions#destroy', :as => :logout
 	match 'downloads' => 'uploads#index',:as => :downloads
-
+	match 'my_downloads' => 'uploads#user_uploads', :as => :my_downloads
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

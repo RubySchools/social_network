@@ -1,11 +1,12 @@
 class UploadsController < ApplicationController
 
-skip_before_filter :require_login
+skip_before_filter :require_login, :only => [:index, :show]
 
 #Page where all Uploads are available
 def index
 @files = Upload.all
-  @title = "Downloads"
+@user = User.find(1)
+   @title = "Downloads"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @files }
@@ -39,7 +40,7 @@ def new
   # POST /files.json
   def create
     @file = Upload.new(params[:upload])
-
+		@file.user = current_user
     respond_to do |format|
       if @file.save
         format.html { redirect_to(:uploads, :notice => 'file was successfully created.') }
@@ -78,5 +79,14 @@ def new
       format.json { head :ok }
     end
   end
+
+	def user_uploads
+			@files = current_user.uploads.all	
+	end
+
+
+
+
+
 
 end
