@@ -13,12 +13,20 @@
   <tr>
     <td><%= file.name %></td>
     <td><%= file.description %></td>
-    <td><%= link_to "#{file.user.username}", user_path(file.user) %></td>
+    <td><%= link_to "#{file.user.username}", file.user %></td>
 	    
 	<td><%= link_to 'Show', file %></td>
-    <td><%= link_to 'Edit', edit_upload_path(file) %></td>
-    <!-- <td><%= link_to 'Destroy', file, confirm: 'Are you sure?', method: :delete %></td> -->
-	<td><%= link_to 'Destroy', file, method: :delete %></td>   
+    	<td><%= link_to 'Edit', edit_upload_path(file) %></td>
+    	<% if current_user.uploads.include?(file) %>	
+		<td><%= link_to 'Destroy', file , method: :delete %></td>   
+	<% else if current_user.users_upload.include?(file)%>
+		<td>Already_in_favorites</td>  	
+	<% else %>
+		<td><%= link_to 'add_to_favorite', add_upload_to_favorite_path(file) %></td>   
+	<% end %>
+	<% end %>
+		
+	
 </tr>
 <% end %>
 </table>

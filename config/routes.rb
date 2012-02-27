@@ -9,6 +9,9 @@ SocialNetwork::Application.routes.draw do
 	match 'logout' => 'user_sessions#destroy', :as => :logout
 	match 'downloads' => 'uploads#index',:as => :downloads
 	match 'my_downloads' => 'uploads#user_uploads', :as => :my_downloads
+	match 'add_upload_to_favorite/:id' => 'uploads#add_to_favorite', :as => :add_upload_to_favorite
+ 	match 'delete_upload_from_favorite/:id' => 'uploads#delete_from_favorites', :as => :delete_upload_from_favorite
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -4,8 +4,8 @@ class Upload < ActiveRecord::Base
 
 #Relations
 	belongs_to :user
-#	has_many :users
-#	has_many :users , :through => :users_uploads
-	
+	has_many :users_upload	
+	has_many :savers, :through => :users_upload, :source => :user
+ 	
 #Validation
 end

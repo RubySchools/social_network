@@ -4,10 +4,8 @@ class User < ActiveRecord::Base
 	
 #Relations
 	has_many :uploads
-#	has_many :uploads, :through => :users_uploads
-
-
-
+	has_many :users_upload
+	has_many :saved_uploads, :through => :users_upload, :source => :upload
 
 
 #Validation

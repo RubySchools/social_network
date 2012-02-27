@@ -5,7 +5,6 @@ skip_before_filter :require_login, :only => [:index, :show]
 #Page where all Uploads are available
 def index
 @files = Upload.all
-@user = User.find(1)
    @title = "Downloads"
     respond_to do |format|
       format.html # index.html.erb
@@ -81,7 +80,28 @@ def new
   end
 
 	def user_uploads
-			@files = current_user.uploads.all	
+			@files = current_user.saved_uploads + current_user.uploads
+	end
+
+	def add_to_favorite
+			favourite_upload = UsersUpload.new
+			favourite_upload.user = current_user
+			favourite_upload.upload = Upload.find(params[:id])	   	
+			if favourite_upload.save
+				respond_to do |format|
+					  		format.html { redirect_to uploads_url }
+				end	
+			end
+	end
+	
+	def delete_from_favorites
+			id = params[:id]			
+			@favourite_upload = UsersUpload.find_by_saved_upload(params[:id])	   	
+			if @favourite_upload.destroy
+				respond_to do |format|
+					  		format.html { redirect_to my_downloads_url }
+				end	
+			end
 	end
 
 
