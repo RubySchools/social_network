@@ -94,14 +94,12 @@ def new
 			end
 	end
 	
-	def delete_from_favorites
-			id = params[:id]			
-			@favourite_upload = UsersUpload.find_by_saved_upload(params[:id])	   	
-			if @favourite_upload.destroy
+	def delete_from_favorites			
+			@favourite_upload = UsersUpload.where(:upload_id => params[:id],:user_id => current_user.id)	   	
+			@favourite_upload.first.destroy
 				respond_to do |format|
 					  		format.html { redirect_to my_downloads_url }
-				end	
-			end
+				end
 	end
 
 
