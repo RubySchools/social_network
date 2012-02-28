@@ -21,6 +21,7 @@
 	<% else %>
 	<td><%= link_to 'Remove from favorite', delete_upload_from_favorite_path(file) %></td>   
 	<% end %>
+	<td><%= link_to "Download", file.file_url %></td>
 </tr>
 <% end %>
 <% else %>
