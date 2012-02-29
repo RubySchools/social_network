@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @title = @user.username
+    @posts = @user.posts.paginate(:page => params[:page])
+
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -32,7 +35,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
-    end
+    end	
   end
 
   # GET /users/1/edit

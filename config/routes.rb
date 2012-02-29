@@ -1,11 +1,14 @@
 SocialNetwork::Application.routes.draw do
 
-	root :to => 'users#index'
+	root :to => 'pages#home'
 	resources :user_sessions
 	resources :users
 	resources :uploads
+	resources :userlist
+	resources :posts, :only => [:create, :destroy]
 
 	match 'login' => 'user_sessions#new', :as => :login
+	match 'userslist' => 'users#index', :as => :userslist
 	match 'logout' => 'user_sessions#destroy', :as => :logout
 	match 'downloads' => 'uploads#index',:as => :downloads
 	match 'my_downloads' => 'uploads#user_uploads', :as => :my_downloads

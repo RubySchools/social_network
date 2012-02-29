@@ -4,10 +4,13 @@ class User < ActiveRecord::Base
 	
 #Relations
 	has_many :uploads
+	has_many :posts, :dependent => :destroy
 #	has_many :uploads, :through => :users_uploads
 
 
-
+def feed
+posts
+end
 
 
 #Validation

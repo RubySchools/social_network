@@ -19,14 +19,18 @@
  <div class="container">
 
   <header>
-    <%= image_tag("logo.png", :alt => "Ruby School", :class => "round") %>
+   <%= image_tag("logo.png", :alt => "Ruby School", :class => "round") %>
         <nav class="round">
           <ul>
+			<li><%= link_to "Home", :home %></li>
+			<li><%= link_to "Users", :userslist %></li>
 		<% if current_user %>
 			<li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
 			<li><%= link_to "Logout", :logout %></li>
-			<li><%= link_to "my_downloads", :downloads %></li>
-		 <% else %>
+			<li><%= link_to "downloads", :downloads %></li>
+			<li><%= link_to "my_downloads", :my_downloads %></li>
+				 
+		<% else %>
 			<li><%= link_to "Register", new_user_path %></li>
 			<li><%= link_to "Login", :login %></li>
 		<% end %>
