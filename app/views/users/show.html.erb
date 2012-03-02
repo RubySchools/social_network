@@ -6,13 +6,6 @@
 			<strong>URL</strong> <%= link_to user_path(@user), @user %><br />
 			<strong>Posts</strong> <%= @user.posts.count %>
 			<br>
-			<% unless @user.posts.empty? %>
-			<table class="posts" summary="User posts">
-			<%= render @posts %>
-			</table>
-			<%= will_paginate @posts %>
-			<% end %>
-			<br>
 			<%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %>
 		</td>
 	</tr>

@@ -3,6 +3,7 @@
 		<span class="user_name">
 			<%= current_user.username %>
 		</span>
+		<br>
 		<span class="posts">
 			<%= pluralize(current_user.posts.count, "post") %>
 		</span>

@@ -1,18 +1,17 @@
-  <table class="front" summary="For signed-in users">
-    <tr>
-      <td class="main">
-        <h1 class="post">What's up?</h1>
-        <%= render 'shared/post_form' %>
-        <%= render 'shared/feed' %>
-      </td>
-      <td class="sidebar round">
-        <%= render 'shared/user_info' %>
+<%- if current_user %>
+	<table class="front" summary="For signed-in users">
+		<tr>
+			<td class="main">
+				<h1 class="post">What's up?</h1>
+					<%= render 'shared/post_form' %>
+					<%= render 'shared/feed' %>
+			</td>
+			<td class="sidebar round">
+				<%= render 'shared/user_info' %>
+			</td>
+<%- end %> 
+		</tr>
+	</table>
 
-      </td>
-    </tr>
-  </table>
-
-<% else %>
-
-
-
+	<h1>Social Network</h1>
+	<%= link_to 'New User', new_user_path %>

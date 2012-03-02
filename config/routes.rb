@@ -1,7 +1,7 @@
 SocialNetwork::Application.routes.draw do
 
 	root :to => 'pages#home'
-	resources :user_sessions
+	resources :user_sessions, :only => [:new, :create, :destroy]
 	resources :users
 	resources :uploads
 	resources :userlist
