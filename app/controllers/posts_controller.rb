@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
+before_filter :authorized_user, :only => :destroy
 before_filter :require_login
 	def create
 		@post = current_user.posts.build(params[:post])
 		if @post.save
 			flash[:success] = "Post created!"
-#			redirected_to root_path
+			redirect_to root_path
+	
 		else
 			@feed_items = []			
 			render 'pages/home'
@@ -12,8 +14,15 @@ before_filter :require_login
 	end
 
 	def destroy
-	end
+		@post.destroy
+		redirect_to root_path
 
+	end
+private
+	def authorized_user
+	@post = current_user.posts.find_by_id(params[:id])
+	redirect_to root_path if @post.nil?
+	end
 	
 
 end
