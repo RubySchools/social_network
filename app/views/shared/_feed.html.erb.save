@@ -1,4 +1,0 @@
-	table class="posts" summary="Status feed">
-    <%= render :partial => 'shared/feed_item', :collection => @feed_items %>
-  </table>
-

@@ -1,0 +1,7 @@
+<% @messages.each do |message|%>
+	 <div class="field">
+		<%= message.content %> 
+		<%= message.user.username %>
+	</div>
+	
+<% end %>

@@ -39,7 +39,7 @@ def new
   # POST /files.json
   def create
     @file = Upload.new(params[:upload])
-		@file.user = current_user
+	@file.user = current_user
     respond_to do |format|
       if @file.save
         format.html { redirect_to(:uploads, :notice => 'file was successfully created.') }

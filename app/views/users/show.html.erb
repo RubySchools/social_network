@@ -1,12 +1,12 @@
 <table class="profile">
 	<tr>
 		<td class="sidebar round">
-			<strong>Name</strong> <%= @user.username %><br />
+			<strong>Name</strong> <%= link_to @user.username, @user %><br />
 			<strong>E-mail</strong> <%= @user.email %><br />
-			<strong>URL</strong> <%= link_to user_path(@user), @user %><br />
 			<strong>Posts</strong> <%= @user.posts.count %>
-			<br>
-			<%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %>
+			<%= link_to "Downloads", :downloads %>
+		<br>
+			<%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %> | <%= link_to 'write', send_message_path(@user) %>
 		</td>
 	</tr>
 </table>
