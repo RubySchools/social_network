@@ -6,7 +6,7 @@
 			<strong>Posts</strong> <%= @user.posts.count %>
 			<%= link_to "Downloads", :downloads %>
 		<br>
-			<%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %> | <%= link_to 'write', send_message_path(@user) %>
+			<%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %> | <%= link_to 'write', :send_message%>
 		</td>
 	</tr>
 </table>

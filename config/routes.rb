@@ -7,7 +7,7 @@ SocialNetwork::Application.routes.draw do
 	resources :userlist
 	resources :posts, :only => [:create, :destroy]
 	resources :messages
-	
+
 	match 'login' => 'user_sessions#new', :as => :login
 	match 'userslist' => 'users#index', :as => :userslist
 	match 'logout' => 'user_sessions#destroy', :as => :logout
@@ -16,7 +16,7 @@ SocialNetwork::Application.routes.draw do
 	match 'add_upload_to_favorite/:id' => 'uploads#add_to_favorite', :as => :add_upload_to_favorite
  	match 'delete_upload_from_favorite/:id' => 'uploads#delete_from_favorites', :as => :delete_upload_from_favorite
 	match 'send_message/:id' => 'messages#create', :as => :send_message
- 	
+ 	match 'my_messages' => "messages#user_messages", :as => :my_messages
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
