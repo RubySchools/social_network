@@ -15,19 +15,10 @@ end
 #Shows only one chosen file? with description.
 def show
     @file = Upload.find(params[:id])
-	    respond_to do |format|
-	      format.html # show.html.erb
-	      format.json { render json: @file }
-    end
 end
 
 def new
     @file = Upload.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @file }
-    end
   end
 
   # GET /files/1/edit
@@ -38,7 +29,7 @@ def new
   # POST /files
   # POST /files.json
   def create
-    @file = Upload.new(params[:upload])
+	@file = Upload.new(params[:upload])
 	@file.user = current_user
     respond_to do |format|
       if @file.save
@@ -72,11 +63,6 @@ def new
   def destroy
     @file = Upload.find(params[:id])
     @file.destroy
-
-    respond_to do |format|
-      format.html { redirect_to uploads_url }
-      format.json { head :ok }
-    end
   end
 
 	def user_uploads
@@ -84,9 +70,7 @@ def new
 	end
 
 	def add_to_favorite
-			favourite_upload = UsersUpload.new
-			favourite_upload.user = current_user
-			favourite_upload.upload = Upload.find(params[:id])	   	
+			favourite_upload = UsersUpload.new(:user => current_user,:upload => Upload.find(params[:id]))
 			if favourite_upload.save
 				respond_to do |format|
 					  		format.html { redirect_to uploads_url }

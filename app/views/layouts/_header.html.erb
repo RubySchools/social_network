@@ -6,9 +6,9 @@
 			<li><%= link_to "Users", :userslist %></li>
 		<% if current_user %>
 			<li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
-			<li><%= link_to "Logout", :logout %></li>
+			<li><%= link_to "Logout(#{current_user.username},#{current_user.id})", :logout %></li>
 			<li><%= link_to "my_downloads", :my_downloads %></li>
-				 
+			<li><%= link_to "inbox", :my_messages%>				 
 		<% else %>
 			<li><%= link_to "Register", new_user_path %></li>
 			<li><%= link_to "Login", :login %></li>
