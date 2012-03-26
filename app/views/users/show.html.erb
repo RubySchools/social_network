@@ -5,7 +5,7 @@
     <strong>E-mail</strong> <%= @user.email %><br />
     <strong>URL</strong> <%= link_to user_path(@user), @user %><br />
     <strong>Posts</strong> <%= link_to @user.posts.count, userposts_path %>
-	<%= link_to "Downloads", :downloads %>
+	<p><%= link_to "Downloads", :downloads %></p>
     <br>
     <%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %>
   </td>

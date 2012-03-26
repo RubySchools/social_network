@@ -2,16 +2,17 @@
    <%= image_tag("logo.png", :alt => "Ruby School", :class => "round") %>
         <nav class="round">
           <ul>
-			<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "Users", :userslist %></li>
+			<li><%= link_to "Главная", root_path %></li>
+			<li><%= link_to "Пользователи", :userslist %></li>
 		<% if current_user %>
-			<li><%= link_to "Редактировать", edit_user_path(current_user.id) %></li>
+			<li><%= link_to "Профиль", edit_user_path(current_user) %></li>
 			<li><%= link_to "Выход", :logout %></li>
-			<li><%= link_to "Мои загрузки", :downloads %></li>
-		 <% else %>
+			<li><%= link_to "Загрузки", :my_downloads %></li>
+			<li><%= link_to "Сообщения", :my_messages %></li>	 
+		<% else %>
 			<li><%= link_to "Регистрация", new_user_path %></li>
 			<li><%= link_to "Вход", :login %></li>
 		<% end %>
           </ul>
-         </nav>
+        </nav>
       </header>

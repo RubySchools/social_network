@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-    @title = "Edit user profile1"
+    @title = "Edit user profile"
     respond_to do |format|
       if @user.save
         UserMailer.welcome_email(@user).deliver

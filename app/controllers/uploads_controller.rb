@@ -2,14 +2,14 @@ class UploadsController < ApplicationController
 
 skip_before_filter :require_login, :only => [:index, :show]
 
-#Page where all Uploads are available
 def index
-@files = Upload.all
-   @title = "Downloads"
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @files }
-    end
+
+	if User.exists?(params[:id])
+			user = User.find(params[:id])
+		@files = user.uploads + user.saved_uploads
+	else
+			redirect_to(:my_downloads, :notice => "Files not found")
+	end
 end
 
 #Shows only one chosen file? with description.
@@ -65,12 +65,12 @@ def new
     @file.destroy
   end
 
-	def user_uploads
-			@files = current_user.saved_uploads + current_user.uploads
-	end
+def favourite
+	@files = current_user.saved_uploads + current_user.uploads
+end
 
-	def add_to_favorite
-			favourite_upload = UsersUpload.new(:user => current_user,:upload => Upload.find(params[:id]))
+def add_to_favorite
+	favourite_upload = UsersUpload.new(:user => current_user,:upload => Upload.find(params[:id]))
 			if favourite_upload.save
 				respond_to do |format|
 					  		format.html { redirect_to uploads_url }

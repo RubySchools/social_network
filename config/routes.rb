@@ -11,12 +11,15 @@ SocialNetwork::Application.routes.draw do
 	match 'login' => 'user_sessions#new', :as => :login
 	match 'userslist' => 'users#index', :as => :userslist
 	match 'logout' => 'user_sessions#destroy', :as => :logout
-	match 'downloads' => 'uploads#index',:as => :downloads
-	match 'my_downloads' => 'uploads#user_uploads', :as => :my_downloads
+	
+	match 'downloads/:id' => 'uploads#index', :as => :downloads
+	match 'my_downloads' => 'uploads#favourite', :as => :my_downloads 	
 	match 'add_upload_to_favorite/:id' => 'uploads#add_to_favorite', :as => :add_upload_to_favorite
  	match 'delete_upload_from_favorite/:id' => 'uploads#delete_from_favorites', :as => :delete_upload_from_favorite
+
   	match 'users/:id/posts' => 'posts#userposts', :as => :userposts
   	match 'users/:id/posts/:id' => 'posts#userpost', :as => :userpost  
+
 	match 'send_message/:id' => 'messages#create', :as => :send_message
  	match 'my_messages' => "messages#user_messages", :as => :my_messages
   # The priority is based upon order of creation:

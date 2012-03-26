@@ -6,4 +6,7 @@ class Message < ActiveRecord::Base
 #Validations
 	validate :user_id, :presence => true
 
+#methods
+
+
 end
