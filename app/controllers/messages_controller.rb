@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 
 def create
 	@recipient = User.find(params[:id])
-	@message = Message.new(:content => params[:content], :user => current_user, :recipient => @recipient)
+	@message = Message.new(:content => params[:content], :user => current_user)
 	@message.save
 	mes_recipient = MessageRecipient.new(:message => @message, :user => @recipient)
 	mes_recipient.save
