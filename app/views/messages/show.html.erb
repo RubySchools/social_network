@@ -1,14 +1,3 @@
-<p>
-  <b>From:</b>
-  <%= @message.user.username %>
-</p>
-<p>
-  <b>To:</b>
-  <% @recipients.each do |recipient|%> <%= recipient.username %> <%end%>
-</p>
-<p>
-  <b>Message:</b>
-  <%= @message.content %>
-</p>
-
+<render 'message'>
 <%= link_to 'Back', :root %>
+

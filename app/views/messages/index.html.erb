@@ -1,7 +1,12 @@
-<% @messages.each do |message|%>
-	 <div class="field">
-		<%= message.content %> (c)<%= link_to message.user.username, message.user %>
-		<%= link_to "Answer", :send_message%>
-	</div>
-_____________________________________________________________________
-<% end %>
+<p>Recieved<p>
+<% if @recieved_messages %>
+	<%= render :partial => 'message', :collection => @recieved_messages %>
+<% else %>
+	You have no messages.
+<%end%>
+<p>Sent<p>
+<% if @sent_messages %>
+	<%= render :partial => 'message', :collection => @sent_messages %>
+<% else %>
+	You have no messages.
+<%end%>

@@ -1,0 +1,6 @@
+<div class="message">
+		<%= link_to message.content, message  %> (c)
+		<%= link_to message.user.username, message.user %>
+		<%= link_to 'Answer', send_message_url(:id => message.user.id) %>
+</div>
+

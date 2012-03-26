@@ -2,24 +2,19 @@ class MessagesController < ApplicationController
 
 def create
 	@recipient = User.find(params[:id])
-	@message = Message.new(:content => params[:content], :user => current_user,)
+	@message = Message.new(:content => params[:content], :user => current_user, :recipient => @recipient)
 	@message.save
 	mes_recipient = MessageRecipient.new(:message => @message, :user => @recipient)
 	mes_recipient.save
 end
- 
 def show
 	@message = Message.find(params[:id])
 	@recipients = @message.recipients
 end
 
 def index
-	@messages = current_user.messages + current_user.recieved_messages
-end
-
-def user_messages	
-	@messages = current_user.recieved_messages
-	
+	@recieved_messages = current_user.recieved_messages
+	@sent_messages = current_user.messages 
 end
 
 def update
