@@ -1,10 +1,12 @@
+#coding: UTF-8
 class PagesController < ApplicationController
 
 def home
-	@title = "Home"
+	@title = "Главная"
 	if current_user
 		@post = Post.new
-		@feed_items = current_user.feed.paginate(:page => params[:page])
+    @user = current_user
+    @feed_items = @user.posts.paginate(:page => params[:page])
 	end
 end
 

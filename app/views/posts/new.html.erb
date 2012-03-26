@@ -1,17 +1,14 @@
-<% if signed_in? %>
-	<table class="front" summary="For signed-in users">
-		<tr>
-			<td class="main">
-				<h1 class="post">What's up?</h1>
-				<%= render 'shared/post_form' %>
-			</td>
-			<td class="sidebar round">
-				<%= render 'shared/user_info' %>
-			</td>
-		</tr>
-	</table>
-<% else %>
-	<h1>Please login or sign up!</h1>
-	
-<% end %>
+ <table class="front" summary="For signed-in users">
+                <tr>
+                        <td class="main">
+                                <h1 class="post">What's up?</h1>
+                                        <%= render 'shared/post_form' %>
+                                        <%= render 'shared/feed' %>
+
+                        </td>
+                        <td class="sidebar round">
+                                <%= render 'shared/user_info' %>
+                        </td>
+                </tr>
+ </table>
 

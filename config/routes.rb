@@ -1,11 +1,18 @@
 SocialNetwork::Application.routes.draw do
 
+  Mercury::Engine.routes
+
 	root :to => 'pages#home'
+  resources :pages do
+		member { post :mercury_update }
+		end
 	resources :user_sessions, :only => [:new, :create, :destroy]
-	resources :users
+	resources :users do
+		member { post :mercury_update }
+		end
 	resources :uploads
 	resources :userlist
-	resources :posts, :only => [:create, :destroy]
+	resources :posts #, :only => [:create, :destroy]
 
 	match 'login' => 'user_sessions#new', :as => :login
 	match 'userslist' => 'users#index', :as => :userslist
@@ -14,7 +21,10 @@ SocialNetwork::Application.routes.draw do
 	match 'my_downloads' => 'uploads#user_uploads', :as => :my_downloads
 	match 'add_upload_to_favorite/:id' => 'uploads#add_to_favorite', :as => :add_upload_to_favorite
  	match 'delete_upload_from_favorite/:id' => 'uploads#delete_from_favorites', :as => :delete_upload_from_favorite
- 
+  match 'users/:id/posts' => 'posts#userposts', :as => :userposts
+  match 'users/:id/posts/:id' => 'posts#userpost', :as => :userpost  
+      
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

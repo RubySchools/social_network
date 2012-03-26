@@ -14,7 +14,6 @@ end
 module SocialNetwork
   class Application < Rails::Application
 
-config.assets.initialize_on_precompile = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -50,3 +49,17 @@ config.assets.initialize_on_precompile = false
     config.assets.version = '1.0'
   end
 end
+
+#config.after_initialize do
+    Disqus::defaults[:account] = "mechmat"
+    # so that the comments will load up in development environment
+    Disqus::defaults[:developer] = true
+    Disqus::defaults[:container_id] = "disqus_thread"
+    Disqus::defaults[:show_powered_by] = false
+    Disqus::defaults[:default_tab] = "recent"
+    Disqus::defaults[:show_powered_by] = false
+    Disqus::defaults[:num_items] = 15
+#    end
+
+#config.gem 'disqus' 
+

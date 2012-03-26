@@ -2,19 +2,19 @@
 
   <td class="post">
     <span class="user">
-      <%= link_to feed_item.user.username, feed_item.user.username %>
+      <%= link_to feed_item.user.username, feed_item.user %>
     </span>
-    <span class="content"><%= wrap(feed_item.content) %></span>
+    <span class="content"><%= link_to wrap(feed_item.content), userpost_path %></span>
     <span class="timestamp">
-      Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+      Добавлено <%= time_ago_in_words(feed_item.created_at) %> ago.
     </span>
   </td>>
 
-<td>
-<%= link_to "delete", feed_item, :method => :delete,
-:confirm => "You sure?",
-:title => feed_item.content %>
-</td>
+  <td>
+    <%= link_to "delete", feed_item, :method => :delete,
+      :confirm => "Вы уверены?",
+      :title => feed_item.content %>
+  </td>
 
 
 </tr>

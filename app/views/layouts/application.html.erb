@@ -22,17 +22,17 @@
    <%= image_tag("logo.png", :alt => "Ruby School", :class => "round") %>
         <nav class="round">
           <ul>
-			<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "Users", :userslist %></li>
+			<li><%= link_to "Главная", root_path %></li>
+			<li><%= link_to "Пользователи", :userslist %></li>
 		<% if current_user %>
-			<li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
-			<li><%= link_to "Logout", :logout %></li>
-			<li><%= link_to "downloads", :downloads %></li>
-			<li><%= link_to "my_downloads", :my_downloads %></li>
+			<li><%= link_to "Профиль", edit_user_path(current_user.id) %></li>
+			<li><%= link_to "Выход", :logout %></li>
+			<li><%= link_to "Загрузки", :downloads %></li>
+			<li><%= link_to "Избранное", :my_downloads %></li>
 				 
 		<% else %>
-			<li><%= link_to "Register", new_user_path %></li>
-			<li><%= link_to "Login", :login %></li>
+			<li><%= link_to "Регистрация", new_user_path %></li>
+			<li><%= link_to "Вход", :login %></li>
 		<% end %>
           </ul>
         </nav>
@@ -51,7 +51,7 @@
 <div>
 <br>
 <% if current_user %><% else %>
-<%= link_to "Register", new_user_path, :class => "signup_button round" %>
+<%= link_to "Регистрация", new_user_path, :class => "signup_button round" %>
 <% end %>
 </div>
 </body>

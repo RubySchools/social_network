@@ -17,8 +17,9 @@ gem 'rmagick'
 gem 'thin'
 gem "will_paginate"
 gem 'eventmachine'#, '~> 1.0.0.beta', :platforms => [:mswin, :mingw]
-gem 'mercury-rails'
-#gem "muck-comments" #comments
+
+./script/plugin install
+
 
 # Gems used only for assets and not required
 # in production environments by default.

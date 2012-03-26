@@ -14,7 +14,7 @@ has_many :posts, :dependent => :destroy
 
 
 def feed
-Post.where("user_id = ?", id)
+	Post.where("user_id = ?", id)
 end
 
 

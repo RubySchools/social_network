@@ -2,17 +2,17 @@
 	<table class="front" summary="For signed-in users">
 		<tr>
 			<td class="main">
-				<h1 class="post">What's up?</h1>
+				<h1 class="post">Как дела?</h1>
 					<%= render 'shared/post_form' %>
-					<%= render 'shared/feed' %>
+					
 					
 			</td>
 			<td class="sidebar round">
 				<%= render 'shared/user_info' %>
-			</td>
-<%- end %> 
+			</td> 
 		</tr>
 	</table>
-
-	<h1>Social Network</h1>
-	<%= link_to 'New User', new_user_path %>
+<%- else %>
+	<h1>Социальная сеть</h1>
+	<h3>Пожалуйста войдти или зарегистрируйтесь!</h3>
+<%- end %>

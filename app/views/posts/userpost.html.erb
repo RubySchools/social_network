@@ -1,0 +1,14 @@
+<table class="post">
+	<tr>
+		<td class="sidebar round">
+ 			Пользователь: <%= @user.username %>
+			<br>
+  		Добавлено: <%= @post.created_at %>
+			<br>
+			Обновлено: <%= @post.updated_at %>
+                        <br>
+			Новость: <div id="post_content" class="mercury-region" data-type="editable">	<%= @post.content %>
+		</td>
+	</tr>
+</table>
+
