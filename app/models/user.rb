@@ -4,12 +4,13 @@ class User < ActiveRecord::Base
 	
 #Relations
 	has_many :uploads
-
 	has_many :users_upload
 	has_many :saved_uploads, :through => :users_upload, :source => :upload
-has_many :posts, :dependent => :destroy
-#	has_many :uploads, :through => :users_uploads
-
+	has_many :posts, :dependent => :destroy
+	
+	has_many :messages
+	has_many :message_recipient
+	has_many :recieved_messages, :through => :message_recipient, :source => :message
 
 
 

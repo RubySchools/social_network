@@ -1,0 +1,12 @@
+<h1>Writing message to <%= @recipient.username %></h1>
+
+<%= form_for @message do |f| %>
+	<div class="field">
+		<%= f.label :content %><br />
+		<%= f.text_field :content %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>
+<%= link_to 'Back', @recipient %>

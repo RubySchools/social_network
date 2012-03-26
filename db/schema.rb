@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326125155) do
+ActiveRecord::Schema.define(:version => 20120305154753) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -19,14 +19,19 @@ ActiveRecord::Schema.define(:version => 20120326125155) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+  
+  create_table "message_recipients", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
-  create_table "mercury_images", :force => true do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+  create_table "messages", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|

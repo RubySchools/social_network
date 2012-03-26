@@ -1,0 +1,9 @@
+<% if @messages %>
+<% @messages.each do |message|%>
+	 <div class="field">
+		<%= message.content %> (c)<%= link_to message.user.username, message.user %>
+	</div>
+ <%end%>
+<% else %>
+	You have no messages.
+<%end%>

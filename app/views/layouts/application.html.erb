@@ -1,20 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Social Network | <%= @title %></title>
-    
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
-    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 
+	<%= render 'layouts/style_and_meta' %>
 
-       <%= javascript_include_tag "application" %>
-      <%= csrf_meta_tags %>
-  </head>
   <body>
  <div class="container">
 
@@ -37,7 +25,7 @@
           </ul>
         </nav>
       </header>
-    
+	  
 	<div>
 		<p id="notice"><%= notice %></p>
 		<p id="alert"><%= alert %></p>
